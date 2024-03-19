@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Insert Name</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class = "container">
+    <div class =" content">
+        <h1> Insert Name</h1>
+        <div class = "row">
+            <div>
+                <label for = "first">First</label>
+                <input id = "first" name = "first_name" type = "text">
+            </div>
+            <div>
+                <label for = "last">Last</label>
+                <input id = "last" name = "last_name" type = "text">
+            </div>
+        </div>
+        <button name = "submit">Submit</button>
+        <button name = "clear"> Clear</button>
+        <p class="hidden"></p>
+    </div>
+</div>
+<script>
+    const firstName = document.getElementById('first');
+    const lastName = document.getElementById('last');
+    const outputContainer = document.querySelector('.content'); // select an appropriate container
+    const clearButton = document.querySelector('[name="clear"]');
+    const submitButton = document.querySelector('[name="submit"]');
+
+    clearButton.addEventListener('click', function(e) {
+        firstName.value = "";
+        lastName.value = "";
+        outputContainer.value = "";
+    });
+
+    submitButton.addEventListener('click', function(e) {
+        let first = firstName.value;
+        let last = lastName.value;
+
+                // Create a new paragraph element
+        const full = document.createElement('p');
+
+        full.textContent = `Hello ${first} ${last}!`;
+
+        outputContainer.appendChild(full);
+    });
+</script>
+</body>
+</html>
